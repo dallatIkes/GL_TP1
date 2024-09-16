@@ -11,13 +11,17 @@ public class Money {
         this.currency = currency;
     }
 
+    public int getAmount() {
+        return amount;
+    }
+
+    public String getCurrency() {
+        return currency;
+    }
+
     @Override
     public String toString() {
         return amount + " " + currency;
-    }
-
-    public Money add(Money that) {
-        return new Money(this.amount+that.amount,this.currency);
     }
 
     @Override
@@ -31,5 +35,13 @@ public class Money {
     @Override
     public int hashCode() {
         return Objects.hash(amount, currency);
+    }
+
+    public Money add(Money that) {
+        return new Money(this.amount+that.amount,this.currency);
+    }
+
+    public Money sub(Money that){
+        return new Money(this.amount-that.amount, this.currency);
     }
 }
