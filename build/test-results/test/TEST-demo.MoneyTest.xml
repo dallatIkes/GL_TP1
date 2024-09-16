@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="demo.MoneyTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-09-16T00:34:08" hostname="ubuntu-laptop" time="0.02">
+<testsuite name="demo.MoneyTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-09-16T10:56:47" hostname="ubuntu-laptop" time="0.022">
   <properties/>
-  <testcase name="testAddEuros()" classname="demo.MoneyTest" time="0.02"/>
+  <testcase name="testAddEuros()" classname="demo.MoneyTest" time="0.022"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
