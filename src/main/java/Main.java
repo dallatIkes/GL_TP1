@@ -1,4 +1,4 @@
-import demo.Money;
+import bank.Money;
 import demo.MoneyBag;
 
 public class Main {

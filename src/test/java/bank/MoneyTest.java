@@ -1,4 +1,4 @@
-package demo;
+package bank;
 
 import org.junit.jupiter.api.Test;
 

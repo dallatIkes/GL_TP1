@@ -1,14 +1,43 @@
 @startuml
-package demo {
+package bank {
 class Money {
-- amount: int
+- amount: float
 - currency: String
 + this(amount: int, currency: String)
 + add(that: Money): Money
++ sub(that: Money): Money
+}
+
+class Person{
+- firstName: String
+- lastName: String
+- addr: String
++ this(firstName: String, lastName: String, addr: String)
+}
+class Account{
+- number: int
+- owner: Person
+- amount: Money
+- currentOverdraw: float
+- maxOverdraw: float
+- maxWithdrawal: float
++ this(number: int, owner: Person)
++ this(number: int, owner: Person, initialDeposit: float)
++ this(number: int, owner: Person, initialDeposit: float, maxOverdraw: float, maxWithdrawal: float)
++ credit(amount: float): void
++ debit(amount: float): void
++ transfer(beneficiary: Account, amount: float): void
++ isOverdrawn(): boolean
 }
 }
 class Main {
 + {static} main(args: String[])
 }
+
 Main -- Money
+Main -- Account
+Main -- Person
+
+Account o-- Money
+Account o-- Person
 @enduml

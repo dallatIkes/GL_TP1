@@ -1,17 +1,17 @@
-package demo;
+package bank;
 
 import java.util.Objects;
 
 public class Money {
-    int amount;
+    float amount;
     String currency;
 
-    public Money(int amount, String currency) {
+    public Money(float amount, String currency) {
         this.amount = amount;
         this.currency = currency;
     }
 
-    public int getAmount() {
+    public float getAmount() {
         return amount;
     }
 
