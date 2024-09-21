@@ -18,10 +18,8 @@ class Account{
 - number: int
 - owner: Person
 - amount: Money
-- currentOverdraw: float
 - maxOverdraw: float
 - maxWithdrawal: float
-- isOverdrawn: boolean
 + this(number: int, owner: Person)
 + this(number: int, owner: Person, initialDeposit: float)
 + this(number: int, owner: Person, initialDeposit: float, maxOverdraw: float, maxWithdrawal: float)

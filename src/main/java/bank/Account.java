@@ -94,11 +94,11 @@ public class Account {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Account account = (Account) o;
-        return number == account.number && Float.compare(currentOverdraw, account.currentOverdraw) == 0 && Float.compare(maxOverdraw, account.maxOverdraw) == 0 && Float.compare(maxWithdrawal, account.maxWithdrawal) == 0 && isOverdrawn == account.isOverdrawn && Objects.equals(owner, account.owner) && Objects.equals(balance, account.balance);
+        return number == account.number && Float.compare(maxOverdraw, account.maxOverdraw) == 0 && Float.compare(maxWithdrawal, account.maxWithdrawal) == 0 && Objects.equals(owner, account.owner) && Objects.equals(balance, account.balance);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(number, owner, balance, currentOverdraw, maxOverdraw, maxWithdrawal, isOverdrawn);
+        return Objects.hash(number, owner, balance, maxOverdraw, maxWithdrawal);
     }
 }
