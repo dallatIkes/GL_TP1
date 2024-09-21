@@ -21,13 +21,13 @@ class Account{
 - currentOverdraw: float
 - maxOverdraw: float
 - maxWithdrawal: float
+- isOverdrawn: boolean
 + this(number: int, owner: Person)
 + this(number: int, owner: Person, initialDeposit: float)
 + this(number: int, owner: Person, initialDeposit: float, maxOverdraw: float, maxWithdrawal: float)
 + credit(amount: float): void
 + debit(amount: float): void
 + transfer(beneficiary: Account, amount: float): void
-+ isOverdrawn(): boolean
 }
 }
 class Main {
