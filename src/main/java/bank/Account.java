@@ -3,8 +3,8 @@ package bank;
 import java.util.Objects;
 
 public class Account {
-    private int number;
-    private Person owner;
+    private final int number;
+    private final Person owner;
     private Money balance;
     private float maxOverdraw;
     private float maxWithdrawal;
@@ -45,48 +45,53 @@ public class Account {
         return maxWithdrawal;
     }
 
+    public void setMaxOverdraw(float maxOverdraw) {
+        this.maxOverdraw = maxOverdraw;
+    }
+
+    public void setMaxWithdrawal(float maxWithdrawal) {
+        this.maxWithdrawal = maxWithdrawal;
+    }
+
     /**
      * Adds a positive balance to the account balance
+     *
      * @param amount balance to add
      */
-    public void credit(float amount){
+    public void credit(float amount) {
+        if (amount < 0) {
+            throw new IllegalArgumentException("The amount credited must be positive");
+        }
         this.balance = this.balance.add(new Money(amount, "EUR"));
     }
 
     /**
      * Subtracts a positive balance to the account balance
+     *
      * @param amount balance to subtract
      */
-    public void debit(float amount){
-        if(amount > maxWithdrawal){
-            // We can't debit an amount greater than maxWithdrawal
+    public void debit(float amount) {
+        if (amount < 0) {
+            throw new IllegalArgumentException("The amount debited must be positive");
+        }
+        if (amount > maxWithdrawal) {
             throw new IllegalArgumentException("Withdrawal limit has been reached");
         }
-        else{
-            // The client has a positive balance greater than the amount debited
-            if(amount <= this.balance.getAmount()){
-                this.balance = this.balance.sub(new Money(amount, "EUR"));
-            }
-            else{
-                // The client doesn't have enough money but the debit is still possible with overdraw
-                if(Math.abs(this.balance.getAmount()-amount)<=maxOverdraw){
-                    this.balance = this.balance.sub(new Money(amount, "EUR"));
-                }
-                else{
-                    // We can't go pass the maxOverdraw limit
-                    throw new IllegalArgumentException("Overdraw limit has been reached");
-                }
-            }
+        if (this.balance.getAmount() - amount < -maxOverdraw) {
+            throw new IllegalArgumentException("Overdraw limit has been reached");
         }
+        this.balance = this.balance.sub(new Money(amount, "EUR"));
     }
 
     /**
      * Transfers a specified balance to another account
+     *
      * @param beneficiary account to which you transfer
-     * @param amount balance to transfer
+     * @param amount      balance to transfer
      */
-    public void transfer(Account beneficiary, float amount){
-
+    public void transfer(Account beneficiary, float amount) {
+        this.debit(amount);
+        beneficiary.credit(amount);
     }
 
     @Override
