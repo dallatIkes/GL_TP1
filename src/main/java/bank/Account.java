@@ -10,6 +10,15 @@ public class Account {
     private float maxWithdrawal;
 
     public Account(int number, Person owner, float balance, float maxOverdraw, float maxWithdrawal) {
+        if(balance < 0){
+            throw new IllegalArgumentException("The balance value must be positive");
+        }
+        if(maxOverdraw < 0) {
+            throw new IllegalArgumentException("The maximum overdraw value must be positive");
+        }
+        if(maxWithdrawal < 0){
+            throw new IllegalArgumentException("The maximum withdrawal value must be positive");
+        }
         this.number = number;
         this.owner = owner;
         this.balance = new Money(balance, "EUR");

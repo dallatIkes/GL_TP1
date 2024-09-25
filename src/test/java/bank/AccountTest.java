@@ -7,6 +7,19 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class AccountTest {
     private final Person p = new Person("John", "Doe", "Main street");
+
+    @Test
+    void constructorTest() {
+        IllegalArgumentException e0 = assertThrows(IllegalArgumentException.class, () -> new Account(0, p, -1));
+        assertEquals(e0.getMessage(), "The balance value must be positive");
+
+        IllegalArgumentException e1 = assertThrows(IllegalArgumentException.class, () -> new Account(0, p, 0, -1, 0));
+        assertEquals(e1.getMessage(), "The maximum overdraw value must be positive");
+
+        IllegalArgumentException e2 = assertThrows(IllegalArgumentException.class, () -> new Account(0, p, 0, 0, -1));
+        assertEquals(e2.getMessage(), "The maximum withdrawal value must be positive");
+    }
+
     @Test
     void creditTest() {
         Account a = new Account(0, p);
