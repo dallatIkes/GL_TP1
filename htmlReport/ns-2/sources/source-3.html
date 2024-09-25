@@ -5,7 +5,7 @@
 <html id="htmlId">
 <head>
   <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> 
-  <title>Coverage Report > Money</title>
+  <title>Coverage Report > Person</title>
   <style type="text/css">
     @import "../../css/coverage.css";
     @import "../../css/idea.min.css";
@@ -22,7 +22,7 @@ Current scope:     <a href="../../index.html">all classes</a>
     <a href="../index.html">bank</a>
 </div>
 
-<h1>Coverage Summary for Class: Money (bank)</h1>
+<h1>Coverage Summary for Class: Person (bank)</h1>
 
 <table class="coverageStats">
 <tr>
@@ -37,15 +37,11 @@ Current scope:     <a href="../../index.html">all classes</a>
 </th>
 <th class="coverageStat 
 ">
-  Branch, %
-</th>
-<th class="coverageStat 
-">
   Line, %
 </th>
 </tr>
 <tr>
-  <td class="name">Money</td>
+  <td class="name">Person</td>
 <td class="coverageStat">
   <span class="percent">
     100%
@@ -56,26 +52,18 @@ Current scope:     <a href="../../index.html">all classes</a>
 </td>
 <td class="coverageStat">
   <span class="percent">
-    75%
+    16.7%
   </span>
   <span class="absValue">
-    (6/8)
+    (1/6)
   </span>
 </td>
 <td class="coverageStat">
   <span class="percent">
-    50%
+    44.4%
   </span>
   <span class="absValue">
-    (4/8)
-  </span>
-</td>
-<td class="coverageStat">
-  <span class="percent">
-    84.6%
-  </span>
-  <span class="absValue">
-    (11/13)
+    (4/9)
   </span>
 </td>
 </tr>
@@ -89,51 +77,38 @@ Current scope:     <a href="../../index.html">all classes</a>
 <pre>
 <code class="sourceCode" id="sourceCode">&nbsp;package bank;
 &nbsp;
-&nbsp;import java.util.Objects;
+&nbsp;public class Person {
+&nbsp;    private final String firstName;
+&nbsp;    private String lastName;
+&nbsp;    private String addr;
 &nbsp;
-&nbsp;public class Money {
-&nbsp;    float amount;
-&nbsp;    String currency;
-&nbsp;
-<b class="fc">&nbsp;    public Money(float amount, String currency) {</b>
-<b class="fc">&nbsp;        this.amount = amount;</b>
-<b class="fc">&nbsp;        this.currency = currency;</b>
+<b class="fc">&nbsp;    public Person(String firstName, String lastName, String addr) {</b>
+<b class="fc">&nbsp;        this.firstName = firstName;</b>
+<b class="fc">&nbsp;        this.lastName = lastName;</b>
+<b class="fc">&nbsp;        this.addr = addr;</b>
 &nbsp;    }
 &nbsp;
-&nbsp;    public float getAmount() {
-<b class="fc">&nbsp;        return amount;</b>
+&nbsp;    public String getFirstName() {
+<b class="nc">&nbsp;        return firstName;</b>
 &nbsp;    }
 &nbsp;
-&nbsp;    public String getCurrency() {
-<b class="nc">&nbsp;        return currency;</b>
+&nbsp;    public String getLastName() {
+<b class="nc">&nbsp;        return lastName;</b>
 &nbsp;    }
 &nbsp;
-&nbsp;    @Override
-&nbsp;    public String toString() {
-<b class="fc">&nbsp;        return amount + &quot; &quot; + currency;</b>
+&nbsp;    public String getAddr() {
+<b class="nc">&nbsp;        return addr;</b>
 &nbsp;    }
 &nbsp;
-&nbsp;    @Override
-&nbsp;    public boolean equals(Object o) {
-<b class="pc">&nbsp;        if (this == o) return true;</b>
-<b class="pc">&nbsp;        if (o == null || getClass() != o.getClass()) return false;</b>
-<b class="fc">&nbsp;        Money money = (Money) o;</b>
-<b class="pc">&nbsp;        return amount == money.amount &amp;&amp; Objects.equals(currency, money.currency);</b>
+&nbsp;    public void setLastName(String lastName) {
+<b class="nc">&nbsp;        this.lastName = lastName;</b>
 &nbsp;    }
 &nbsp;
-&nbsp;    @Override
-&nbsp;    public int hashCode() {
-<b class="nc">&nbsp;        return Objects.hash(amount, currency);</b>
-&nbsp;    }
-&nbsp;
-&nbsp;    public Money add(Money that) {
-<b class="fc">&nbsp;        return new Money(this.amount+that.amount,this.currency);</b>
-&nbsp;    }
-&nbsp;
-&nbsp;    public Money sub(Money that){
-<b class="fc">&nbsp;        return new Money(this.amount-that.amount, this.currency);</b>
+&nbsp;    public void setAddr(String addr) {
+<b class="nc">&nbsp;        this.addr = addr;</b>
 &nbsp;    }
 &nbsp;}
+&nbsp;
 </code>
 </pre>
 </div>
