@@ -1,5 +1,8 @@
 @startuml
 package bank {
+class MoneyBag{
+- bag : ArrayList<Money>
+}
 class Money {
 - amount: float
 - currency: String
@@ -32,10 +35,10 @@ class Main {
 + {static} main(args: String[])
 }
 
-Main -- Money
 Main -- Account
 Main -- Person
 
-Account o-- Money
+MoneyBag *-- Money
+Account *-- MoneyBag
 Account o-- Person
 @enduml
