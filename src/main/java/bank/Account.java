@@ -1,5 +1,6 @@
 package bank;
 
+import java.sql.*;
 import java.util.Objects;
 
 public class Account {
@@ -24,6 +25,36 @@ public class Account {
         this.balance = new Money(balance, "EUR");
         this.maxOverdraw = maxOverdraw;
         this.maxWithdrawal = maxWithdrawal;
+
+        // Connexion à la base de données
+        Connection connection = null;
+        try{
+            // create a database connection by specifying an absolute or relative path for SQLite, or the server address otherwise
+            connection = DriverManager.getConnection("jdbc:sqlite:/home/s4my/GL/TP_Money/src/main/resources/banque.db");
+            PreparedStatement addStmt = connection.prepareStatement("insert into compte values(?, ?, ?, ?)");
+            addStmt.setInt(1, number);
+            addStmt.setFloat(2, balance);
+            addStmt.setInt(3, owner.get);
+            while (rs.next()) {
+                // read the result set
+                System.out.println("name = " + rs.getString("name"));
+                System.out.println("id = " + rs.getInt("id"));
+            }
+        }
+        catch(SQLException e){
+            // if the error message is "out of memory",
+            // it probably means no database file is found
+            System.err.println(e.getMessage());
+        }
+        finally{
+            try {
+                if (connection != null)
+                    connection.close();
+            } catch (SQLException e) {
+                // connection close failed.
+                System.err.println(e.getMessage());
+            }
+        }
     }
 
     public Account(int number, Person owner, float balance) {

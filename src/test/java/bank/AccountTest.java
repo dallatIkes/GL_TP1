@@ -6,7 +6,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class AccountTest {
-    private final Person p = new Person("John", "Doe", "Main street");
+    private final Person p = new Person(0, "John", "Doe", "Main street", "New York", "USA");
 
     @Test
     void constructorTest() {
