@@ -22,11 +22,11 @@ public class Person {
         this.ville = ville;
         this.pays = pays;
         Date date = new Date();
-        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
         this.dateMaj = formatter.format(date);
     }
 
-    public Person(String firstName, int id, String lastName, String addr, String ville, String pays) {
+    public Person(int id, String firstName, String lastName, String addr, String ville, String pays) {
         this(id, firstName, lastName, addr, 0, ville, pays);
     }
 

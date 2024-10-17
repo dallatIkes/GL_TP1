@@ -20,7 +20,7 @@ class Person{
 class Account{
 - number: int
 - owner: Person
-- amount: Money
+- balance: MoneyBag
 - maxOverdraw: float
 - maxWithdrawal: float
 + this(number: int, owner: Person)

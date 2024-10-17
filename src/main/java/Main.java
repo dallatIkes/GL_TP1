@@ -6,11 +6,11 @@ import demo.MoneyBag;
 public class Main {
     public static void main(String[] args){
 
-        Person p1 = new Person("Eric", "Martin", "");
-        Person p2 = new Person("Wulfric", "Tartampion", "");
-        Person p3 = new Person("Eric", "Nopon", "");
-        Person p4 = new Person("Berlioz", "Le Du", "");
-        Person p5 = new Person("Adélaïde", "de Bonnefamille", "");
+        Person p1 = new Person(0, "Eric", "Martin", "", "", "");
+        Person p2 = new Person(1, "Wulfric", "Tartampion", "", "", "");
+        Person p3 = new Person(2, "Eric", "Nopon", "", "", "");
+        Person p4 = new Person(3, "Berlioz", "Le Du", "", "", "");
+        Person p5 = new Person(4, "Adélaïde", "de Bonnefamille", "", "", "");
 
         Account a1 = new Account(1, p1, 5000);
         Account a2 = new Account(2, p2, -20);

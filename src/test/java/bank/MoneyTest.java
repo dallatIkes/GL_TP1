@@ -19,5 +19,6 @@ public class MoneyTest {
         Money m2 = new Money(5, "USD");
         Money expected = new Money(15, "USD");
         assertEquals(expected, m1.sub(m2));
+        //ffjfjfj
     }
 }

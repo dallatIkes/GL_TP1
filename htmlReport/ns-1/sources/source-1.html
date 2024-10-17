@@ -1,0 +1,130 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> 
+  <title>Coverage Report > Main</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">&lt;empty package name&gt;</a>
+</div>
+
+<h1>Coverage Summary for Class: Main (&lt;empty package name&gt;)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">Main</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/14)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;import bank.Money;
+&nbsp;import bank.Person;
+&nbsp;import bank.Account;
+&nbsp;import demo.MoneyBag;
+&nbsp;
+<b class="nc">&nbsp;public class Main {</b>
+&nbsp;    public static void main(String[] args){
+&nbsp;
+<b class="nc">&nbsp;        Person p1 = new Person(0, &quot;Eric&quot;, &quot;Martin&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;);</b>
+<b class="nc">&nbsp;        Person p2 = new Person(1, &quot;Wulfric&quot;, &quot;Tartampion&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;);</b>
+<b class="nc">&nbsp;        Person p3 = new Person(2, &quot;Eric&quot;, &quot;Nopon&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;);</b>
+<b class="nc">&nbsp;        Person p4 = new Person(3, &quot;Berlioz&quot;, &quot;Le Du&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;);</b>
+<b class="nc">&nbsp;        Person p5 = new Person(4, &quot;Adélaïde&quot;, &quot;de Bonnefamille&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;);</b>
+&nbsp;
+<b class="nc">&nbsp;        Account a1 = new Account(1, p1, 5000);</b>
+<b class="nc">&nbsp;        Account a2 = new Account(2, p2, -20);</b>
+<b class="nc">&nbsp;        Account a3 = new Account(3, p3, 600);</b>
+<b class="nc">&nbsp;        Account a4 = new Account(4, p4);</b>
+<b class="nc">&nbsp;        a4.setMaxOverdraw(3000);</b>
+<b class="nc">&nbsp;        Account a5 = new Account(5, p5, 350000);</b>
+<b class="nc">&nbsp;        a1.transfer(a3, 1500);</b>
+<b class="nc">&nbsp;        a3.credit(50);</b>
+&nbsp;
+&nbsp;
+&nbsp;    }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2024-10-17 14:43</div>
+</div>
+</body>
+</html>

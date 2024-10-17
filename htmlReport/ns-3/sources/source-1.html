@@ -1,0 +1,169 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> 
+  <title>Coverage Report > MaPremiereConnexion</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">demo</a>
+</div>
+
+<h1>Coverage Summary for Class: MaPremiereConnexion (demo)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">MaPremiereConnexion</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/8)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/21)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package demo;
+&nbsp;
+&nbsp;import java.sql.Connection;
+&nbsp;import java.sql.DriverManager;
+&nbsp;import java.sql.ResultSet;
+&nbsp;import java.sql.SQLException;
+&nbsp;import java.sql.Statement;
+&nbsp;
+<b class="nc">&nbsp;public class MaPremiereConnexion</b>
+&nbsp;{
+&nbsp;    public static void main(String[] args)
+&nbsp;    {
+<b class="nc">&nbsp;        Connection connection = null;</b>
+&nbsp;        try
+&nbsp;        {
+&nbsp;            // create a database connection by specifying an absolute or relative path for SQLite, or the server address otherwise
+<b class="nc">&nbsp;            connection = DriverManager.getConnection(&quot;jdbc:sqlite:/home/s4my/GL/TP_Money/src/main/resources/banque.db&quot;);</b>
+<b class="nc">&nbsp;            Statement statement = connection.createStatement();</b>
+<b class="nc">&nbsp;            statement.setQueryTimeout(30);  // set timeout to 30 sec.</b>
+&nbsp;
+<b class="nc">&nbsp;            statement.executeUpdate(&quot;drop table if exists person&quot;);</b>
+<b class="nc">&nbsp;            statement.executeUpdate(&quot;create table person (id integer, name string)&quot;);</b>
+<b class="nc">&nbsp;            statement.executeUpdate(&quot;insert into person values(1, &#39;leo&#39;)&quot;);</b>
+<b class="nc">&nbsp;            statement.executeUpdate(&quot;insert into person values(2, &#39;yui&#39;)&quot;);</b>
+<b class="nc">&nbsp;            ResultSet rs = statement.executeQuery(&quot;select * from person&quot;);</b>
+<b class="nc">&nbsp;            while(rs.next())</b>
+&nbsp;            {
+&nbsp;                // read the result set
+<b class="nc">&nbsp;                System.out.println(&quot;name = &quot; + rs.getString(&quot;name&quot;));</b>
+<b class="nc">&nbsp;                System.out.println(&quot;id = &quot; + rs.getInt(&quot;id&quot;));</b>
+&nbsp;            }
+&nbsp;        }
+<b class="nc">&nbsp;        catch(SQLException e)</b>
+&nbsp;        {
+&nbsp;            // if the error message is &quot;out of memory&quot;,
+&nbsp;            // it probably means no database file is found
+<b class="nc">&nbsp;            System.err.println(e.getMessage());</b>
+&nbsp;        }
+&nbsp;        finally
+&nbsp;        {
+<b class="nc">&nbsp;            try</b>
+&nbsp;            {
+<b class="nc">&nbsp;                if(connection != null)</b>
+<b class="nc">&nbsp;                    connection.close();</b>
+&nbsp;            }
+<b class="nc">&nbsp;            catch(SQLException e)</b>
+&nbsp;            {
+&nbsp;                // connection close failed.
+<b class="nc">&nbsp;                System.err.println(e.getMessage());</b>
+&nbsp;            }
+<b class="nc">&nbsp;        }</b>
+&nbsp;    }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2024-10-17 14:43</div>
+</div>
+</body>
+</html>
